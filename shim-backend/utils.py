@@ -55,17 +55,48 @@ def send_license_email(recipient_email: str, license_key: str, tier: str):
     msg["To"] = recipient_email
 
     html = f"""\
+    <!DOCTYPE html>
     <html>
-      <body style="font-family: sans-serif; background-color: #000; color: #fff; padding: 20px;">
-        <h2 style="color: #a855f7;">Welcome to Shim</h2>
-        <p>Your payment has been successfully verified.</p>
-        <p>Here is your official <strong>{tier.capitalize()}</strong> license key:</p>
-        <div style="background-color: #1a1a1a; padding: 15px; border-radius: 8px; border: 1px solid #333; margin: 20px 0;">
-            <code style="color: #a855f7; font-size: 18px; font-weight: bold;">{license_key}</code>
-        </div>
-        <p>Enter this key into the Shim extension to activate your features. This key is valid for 30 days.</p>
-        <p style="color: #888; font-size: 12px; margin-top: 40px;">If you did not request this, please ignore this email.</p>
-      </body>
+    <head>
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    </head>
+    <body style="font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif; background-color: #09090b; color: #fafafa; margin: 0; padding: 40px 20px; line-height: 1.6;">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0" style="max-width: 600px; margin: 0 auto; background-color: #18181b; border-radius: 12px; border: 1px solid #27272a; overflow: hidden;">
+        <tr>
+          <td style="padding: 32px 40px; text-align: center; border-bottom: 1px solid #27272a;">
+            <h1 style="color: #a855f7; margin: 0; font-size: 28px; font-weight: 700; letter-spacing: -0.5px;">SHIM</h1>
+          </td>
+        </tr>
+        <tr>
+          <td style="padding: 40px;">
+            <h2 style="margin-top: 0; font-size: 20px; font-weight: 600; color: #ffffff;">Welcome to Shim {tier.capitalize()}</h2>
+            <p style="color: #a1a1aa; font-size: 16px; margin-bottom: 24px;">Your payment has been successfully verified. We are thrilled to have you on board!</p>
+            <p style="color: #fafafa; font-size: 16px; margin-bottom: 12px;">Here is your official <strong>{tier.capitalize()}</strong> license key:</p>
+            
+            <div style="background-color: #09090b; padding: 20px; border-radius: 8px; border: 1px solid #3f3f46; text-align: center; margin: 24px 0;">
+                <code style="color: #c084fc; font-size: 20px; font-weight: bold; letter-spacing: 1px;">{license_key}</code>
+            </div>
+            
+            <p style="color: #a1a1aa; font-size: 15px; margin-bottom: 32px;">Please enter this key directly into the Shim extension to activate your premium features. This key is valid for the next 30 days.</p>
+            
+            <table width="100%" cellpadding="0" cellspacing="0" border="0">
+              <tr>
+                <td style="text-align: center;">
+                  <a href="https://shim-pass.vercel.app/dashboard" style="display: inline-block; padding: 14px 28px; background-color: #a855f7; color: #ffffff; text-decoration: none; font-weight: 600; border-radius: 6px; font-size: 15px;">Go to Dashboard</a>
+                </td>
+              </tr>
+            </table>
+          </td>
+        </tr>
+        <tr>
+          <td style="padding: 32px 40px; background-color: #09090b; text-align: center; border-top: 1px solid #27272a;">
+            <p style="color: #71717a; font-size: 13px; margin: 0;">If you did not request this email, please ignore it.</p>
+            <p style="color: #71717a; font-size: 13px; margin: 8px 0 0 0;">&copy; 2026 Shim Tech. All rights reserved.</p>
+          </td>
+        </tr>
+      </table>
+    </body>
     </html>
     """
     
