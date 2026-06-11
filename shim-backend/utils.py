@@ -51,7 +51,7 @@ def send_license_email(recipient_email: str, license_key: str, tier: str):
 
     msg = MIMEMultipart("alternative")
     msg["Subject"] = f"Your Shim {tier.capitalize()} License Key"
-    msg["From"] = sender_email
+    msg["From"] = f"Shim <{sender_email}>"
     msg["To"] = recipient_email
 
     html = f"""\
