@@ -65,8 +65,16 @@ def send_license_email(recipient_email: str, license_key: str, tier: str):
       <table width="100%" cellpadding="0" cellspacing="0" border="0" style="max-width: 600px; margin: 0 auto; background-color: #ffffff; border-radius: 12px; border: 1px solid #e4e4e7; overflow: hidden;">
         <tr>
           <td style="padding: 32px 40px; text-align: center; border-bottom: 1px solid #e4e4e7;">
-            <img src="https://shim-pass.vercel.app/shim-logo.svg" alt="Shim" width="48" height="48" style="display: block; margin: 0 auto; margin-bottom: 16px; border-radius: 12px;">
-            <h1 style="color: #000000; margin: 0; font-size: 28px; font-weight: 800; letter-spacing: -0.5px;">SHIM</h1>
+            <table cellpadding="0" cellspacing="0" border="0" align="center" style="margin: 0 auto;">
+              <tr>
+                <td style="padding-right: 16px; vertical-align: middle;">
+                  <img src="https://shim-pass.vercel.app/shim-logo.svg" alt="Shim" width="40" height="40" style="display: block; border-radius: 8px;">
+                </td>
+                <td style="vertical-align: middle;">
+                  <h1 style="color: #000000; margin: 0; font-size: 30px; font-weight: 800; letter-spacing: -0.5px; line-height: 1;">SHIM</h1>
+                </td>
+              </tr>
+            </table>
           </td>
         </tr>
         <tr>
