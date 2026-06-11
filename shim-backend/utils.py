@@ -55,7 +55,8 @@ def send_license_email(recipient_email: str, license_key: str, tier: str):
     payload = {
         "recipient_email": recipient_email,
         "license_key": license_key,
-        "tier": tier
+        "tier": tier,
+        "frontend_url": frontend_url.rstrip('/')
     }
 
     try:

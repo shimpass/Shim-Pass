@@ -10,7 +10,14 @@ export async function POST(request: Request) {
       return NextResponse.json({ error: 'Unauthorized' }, { status: 401 });
     }
 
-    const { recipient_email, license_key, tier } = await request.json();
+    let body;
+    try {
+      body = await request.json();
+    } catch {
+      return NextResponse.json({ error: 'Invalid JSON body' }, { status: 400 });
+    }
+
+    const { recipient_email, license_key, tier, frontend_url = 'https://shim-pass.vercel.app' } = body;
 
     if (!recipient_email || !license_key || !tier) {
       return NextResponse.json({ error: 'Missing required fields' }, { status: 400 });
@@ -48,7 +55,7 @@ export async function POST(request: Request) {
             <table cellpadding="0" cellspacing="0" border="0" align="center" style="margin: 0 auto;">
               <tr>
                 <td style="padding-right: 16px; vertical-align: middle;">
-                  <img src="https://shim-pass.vercel.app/shim-logo.svg" alt="Shim" width="40" height="40" style="display: block; border-radius: 8px;">
+                  <img src="${frontend_url}/shim-logo.svg" alt="Shim" width="40" height="40" style="display: block; border-radius: 8px;">
                 </td>
                 <td style="vertical-align: middle;">
                   <h1 style="color: #000000; margin: 0; font-size: 30px; font-weight: 800; letter-spacing: -0.5px; line-height: 1;">SHIM</h1>
@@ -72,7 +79,7 @@ export async function POST(request: Request) {
             <table width="100%" cellpadding="0" cellspacing="0" border="0">
               <tr>
                 <td style="text-align: center;">
-                  <a href="https://shim-pass.vercel.app/dashboard" style="display: inline-block; padding: 14px 28px; background-color: #000000; color: #ffffff; text-decoration: none; font-weight: 600; border-radius: 6px; font-size: 15px;">Go to Dashboard</a>
+                  <a href="${frontend_url}/dashboard" style="display: inline-block; padding: 14px 28px; background-color: #000000; color: #ffffff; text-decoration: none; font-weight: 600; border-radius: 6px; font-size: 15px;">Go to Dashboard</a>
                 </td>
               </tr>
             </table>
