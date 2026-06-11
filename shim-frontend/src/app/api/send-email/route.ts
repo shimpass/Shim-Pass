@@ -16,11 +16,11 @@ export async function POST(request: Request) {
       return NextResponse.json({ error: 'Missing required fields' }, { status: 400 });
     }
 
-    const sender_email = "officialshimpass@gmail.com";
+    const sender_email = process.env.NEXT_PUBLIC_ADMIN_EMAIL;
     const sender_password = process.env.SMTP_PASSWORD;
 
-    if (!sender_password) {
-      console.error("ERROR: SMTP_PASSWORD is not set on Vercel.");
+    if (!sender_email || !sender_password) {
+      console.error("ERROR: NEXT_PUBLIC_ADMIN_EMAIL or SMTP_PASSWORD is not set on Vercel.");
       return NextResponse.json({ error: 'SMTP Configuration missing' }, { status: 500 });
     }
 
