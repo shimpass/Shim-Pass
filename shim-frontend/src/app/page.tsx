@@ -302,7 +302,7 @@ export default function Home() {
               <span className="text-xl font-bold tracking-tighter">Shim</span>
             </div>
             <div className="flex items-baseline gap-2 mb-4">
-              <span className="text-4xl font-bold text-white">$0</span>
+              <span className="text-4xl font-bold text-white">₹0</span>
             </div>
             <p className="text-zinc-400 text-sm mb-8 flex-grow">Perfect for basic testing environments where users have their own AI keys.</p>
             <ul className="space-y-4 mb-8 text-sm text-zinc-300">
@@ -323,7 +323,7 @@ export default function Home() {
             <div className="absolute top-0 left-1/2 -translate-x-1/2 -translate-y-1/2 bg-white text-black text-xs font-bold px-3 py-1 rounded-full uppercase tracking-wider shadow-[0_0_20px_rgba(255,255,255,0.3)]">Standard</div>
             <h3 className="text-xl font-semibold text-white mb-2">Pro Stealth</h3>
             <div className="flex items-baseline gap-2 mb-4">
-              <span className="text-4xl font-bold text-white">$19</span>
+              <span className="text-4xl font-bold text-white">₹19</span>
               <span className="text-zinc-500">/ month</span>
             </div>
             <p className="text-zinc-400 text-sm mb-8 flex-grow">Premium AI access and advanced hardware-level stealth.</p>
@@ -343,7 +343,7 @@ export default function Home() {
           <motion.div variants={scaleUp} className="border border-white bg-white p-8 rounded-2xl flex flex-col text-black shadow-[0_0_60px_rgba(255,255,255,0.15)] relative z-10 transform md:scale-105">
             <h3 className="text-xl font-bold mb-2">Ultra Bypass</h3>
             <div className="flex items-baseline gap-2 mb-4">
-              <span className="text-4xl font-bold">$49</span>
+              <span className="text-4xl font-bold">₹49</span>
               <span className="text-zinc-600 font-medium">/ month</span>
             </div>
             <p className="text-zinc-700 text-sm mb-8 flex-grow">The absolute ultimate bypass. Defeats live video proctoring and screen recording.</p>
