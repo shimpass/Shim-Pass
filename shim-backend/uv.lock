@@ -474,19 +474,6 @@ wheels = [
 ]
 
 [[package]]
-name = "mailtrap"
-version = "2.6.0"
-source = { registry = "https://pypi.org/simple" }
-dependencies = [
-    { name = "pydantic" },
-    { name = "requests" },
-]
-sdist = { url = "https://files.pythonhosted.org/packages/29/75/568f03714c42e8e3bee14a52711adbfc3556e5dea2ed7142b031578d6529/mailtrap-2.6.0.tar.gz", hash = "sha256:990b4f21c75f7a1cdfce6802b9a50ab31b9cdf6071402a15dda882fd0bb56857", size = 31028, upload-time = "2026-05-14T13:51:02.138Z" }
-wheels = [
-    { url = "https://files.pythonhosted.org/packages/2e/fe/15644d532361e8a277e9afddeff161c7f2cb9b98024130318a2b37b49a0b/mailtrap-2.6.0-py3-none-any.whl", hash = "sha256:764624917c5999790e42827cf03e4e3652008c5a9e3ab08e97f480a923dc0315", size = 46563, upload-time = "2026-05-14T13:51:00.764Z" },
-]
-
-[[package]]
 name = "packaging"
 version = "26.2"
 source = { registry = "https://pypi.org/simple" }
@@ -657,7 +644,6 @@ dependencies = [
     { name = "fastapi" },
     { name = "google-genai" },
     { name = "groq" },
-    { name = "mailtrap" },
     { name = "python-dotenv" },
     { name = "python-multipart" },
     { name = "slowapi" },
@@ -671,7 +657,6 @@ requires-dist = [
     { name = "fastapi", specifier = ">=0.136.3" },
     { name = "google-genai", specifier = ">=2.8.0" },
     { name = "groq", specifier = ">=1.4.0" },
-    { name = "mailtrap", specifier = ">=2.6.0" },
     { name = "python-dotenv", specifier = ">=1.2.2" },
     { name = "python-multipart", specifier = ">=0.0.32" },
     { name = "slowapi", specifier = ">=0.1.9" },
