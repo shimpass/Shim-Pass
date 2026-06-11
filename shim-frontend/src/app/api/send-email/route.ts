@@ -71,7 +71,8 @@ export async function POST(request: Request) {
             <p style="color: #18181b; font-size: 16px; margin-bottom: 12px;">Here is your official <strong>${tier.charAt(0).toUpperCase() + tier.slice(1)}</strong> license key:</p>
             
             <div style="background-color: #f4f4f5; padding: 20px; border-radius: 8px; border: 1px solid #e4e4e7; text-align: center; margin: 24px 0;">
-                <code style="color: #000000; font-size: 20px; font-weight: bold; letter-spacing: 1px;">${license_key}</code>
+                <code style="color: #000000; font-size: 20px; font-weight: bold; letter-spacing: 1px; user-select: all; -webkit-user-select: all; cursor: pointer;">${license_key}</code>
+                <div style="font-size: 12px; color: #71717a; margin-top: 8px;">(Click key to select all, then copy)</div>
             </div>
             
             <p style="color: #52525b; font-size: 15px; margin-bottom: 32px;">Please enter this key directly into the Shim extension to activate your premium features. This key is valid for the next 30 days.</p>
