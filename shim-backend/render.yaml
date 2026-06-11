@@ -2,7 +2,7 @@ services:
   - type: web
     name: shim-backend
     env: python
-    buildCommand: uv pip install -r pyproject.toml
+    buildCommand: pip install .
     startCommand: uvicorn main:app --host 0.0.0.0 --port $PORT
     envVars:
       - key: CLOUDINARY_CLOUD_NAME
