@@ -2,9 +2,7 @@ import os
 import uuid
 import random
 import string
-import smtplib
-from email.mime.text import MIMEText
-from email.mime.multipart import MIMEMultipart
+import mailtrap as mt
 import cloudinary
 import cloudinary.uploader
 from datetime import datetime, timedelta
@@ -41,18 +39,12 @@ def generate_license_key(tier: str):
     return f"SHIM-{tier.upper()}-{chunk1}-{chunk2}-{chunk3}"
 
 def send_license_email(recipient_email: str, license_key: str, tier: str):
-    """Sends the license key to the user via Google SMTP."""
-    sender_email = "officialshimpass@gmail.com"
-    sender_password = os.getenv("SMTP_PASSWORD")
-
-    if not sender_password:
-        print("ERROR: SMTP_PASSWORD is not set. Email not sent.")
+    """Sends the license key to the user via Mailtrap API."""
+    mailtrap_token = os.getenv("MAILTRAP_API_TOKEN")
+    
+    if not mailtrap_token:
+        print("ERROR: MAILTRAP_API_TOKEN is not set. Email not sent.")
         return False
-
-    msg = MIMEMultipart("alternative")
-    msg["Subject"] = f"Your Shim {tier.capitalize()} License Key"
-    msg["From"] = sender_email
-    msg["To"] = recipient_email
 
     html = f"""\
     <html>
@@ -68,15 +60,19 @@ def send_license_email(recipient_email: str, license_key: str, tier: str):
       </body>
     </html>
     """
-    
-    msg.attach(MIMEText(html, "html"))
 
     try:
-        with smtplib.SMTP("smtp.gmail.com", 587) as server:
-            server.starttls()
-            server.login(sender_email, sender_password)
-            server.sendmail(sender_email, recipient_email, msg.as_string())
-        print(f"License email sent to {recipient_email} via Gmail")
+        mail = mt.Mail(
+            sender=mt.Address(email="hello@demomailtrap.co", name="Shim Official"),
+            to=[mt.Address(email=recipient_email)],
+            subject=f"Your Shim {tier.capitalize()} License Key",
+            html=html,
+            category="License Delivery",
+        )
+
+        client = mt.MailtrapClient(token=mailtrap_token)
+        response = client.send(mail)
+        print(f"License email sent to {recipient_email} via Mailtrap: {response}")
         return True
     except Exception as e:
         print(f"Failed to send email to {recipient_email}: {e}")
