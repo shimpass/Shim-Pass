@@ -314,7 +314,7 @@ export default function Home() {
               <li className="flex gap-3 opacity-40 text-zinc-500"><X size={16} className="shrink-0 mt-0.5" /> No Ghost Typing</li>
             </ul>
             <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }}>
-              <Link href="/sign-up" className="block w-full py-3 rounded-md border border-white/20 text-center font-medium hover:bg-white/5 transition-colors">Start Free</Link>
+              <a href="/Shim-Extension.zip" download className="block w-full py-3 rounded-md border border-white/20 text-center font-medium hover:bg-white/5 transition-colors">Download Free Extension</a>
             </motion.div>
           </motion.div>
 
